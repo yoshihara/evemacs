@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+
+base_dir = File.expand_path(File.join(File.dirname(__FILE__), ".."))
+lib_dir = File.join(base_dir, "lib")
+$LOAD_PATH.unshift(lib_dir)
+require "evemacs/executor"
+
+Evemacs::Executor.new.run(ARGV)
