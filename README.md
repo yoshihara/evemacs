@@ -1,24 +1,14 @@
 # Evemacs
 
-TODO: Write a gem description
+TODO
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'evemacs'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install evemacs
+TODO
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO
 
 ## Contributing
 
