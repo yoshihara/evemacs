@@ -24,6 +24,9 @@
            (write-region evernote-token nil evemacs-info-file nil nil)
            (kill-process "authorize-evernote"))))))
 
+(defun evemacs-init ()
+  (evemacs))
+
 (defun evemacs-load-info-file ()
   (epa-file-disable)
   (with-temp-buffer
@@ -48,7 +51,7 @@
 (defun evemacs-send-message(message)
   (interactive "sMessage:")
   (if (null evernote-token)
-      (evemacs))
+      (evemacs-init))
   (start-process-shell-command "send-to-evernote" "*Messages*"
                                (evemacs-command message notebook-name))
   (set-process-sentinel
