@@ -57,6 +57,4 @@
       (if (string= signal "finished\n")
           (message "Finished.")))))
 
-(global-set-key "\C-ch" 'write-comment)
-
 (provide 'evemacs)
