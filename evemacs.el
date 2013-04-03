@@ -45,7 +45,7 @@
               " -n " (shell-executable-string notebook)
               " -t " (shell-executable-string evernote-token))))
 
-(defun write-comment(message)
+(defun evemacs-send-message(message)
   (interactive "sMessage:")
   (if (null evernote-token)
       (evemacs))
