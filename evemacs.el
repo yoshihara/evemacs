@@ -34,19 +34,19 @@
     (setq evernote-token (buffer-string)))
 )
 
-(defun shell-executable-string(shell-string)
+(defun evemacs-shell-executable-string(shell-string)
   (concat "\"" shell-string "\"")
 )
 
 (defun evemacs-command(message notebook)
   (if (null notebook)
       (concat el-path "bin/evemacs"
-              " -m " (shell-executable-string message)
-              " -t " (shell-executable-string evernote-token))
+              " -m " (evemacs-shell-executable-string message)
+              " -t " (evemacs-shell-executable-string evernote-token))
       (concat el-path "bin/evemacs"
-              " -m " (shell-executable-string message)
-              " -n " (shell-executable-string notebook)
-              " -t " (shell-executable-string evernote-token))))
+              " -m " (evemacs-shell-executable-string message)
+              " -n " (evemacs-shell-executable-string notebook)
+              " -t " (evemacs-shell-executable-string evernote-token))))
 
 (defun evemacs-send-message(message)
   (interactive "sMessage:")
