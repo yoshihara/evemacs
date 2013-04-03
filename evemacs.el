@@ -59,43 +59,4 @@
 
 (global-set-key "\C-ch" 'write-comment)
 
-
-;; ここは別にすること（2013/01からの半年の目標用）
-(defun write-tension(string reason)
-  (interactive "sテンション:\nsその理由:")
-  (setq encode-string (encode-coding-string string 'utf-8))
-  (setq encode-reason (encode-coding-string reason 'utf-8))
-  (start-process-shell-command "write-tension" "*Messages*"
-                               (ruby-script-path "write-tension.rb") encode-string encode-reason log-file-path)
-)
-(global-set-key (kbd "ESC M-h") 'write-tension)
-
 (provide 'evemacs)
-
-;; (defun date()
-;;   (format-time-string "%y%m%d" (current-time))
-;; )
-
-;; (defun time()
-;;   (format-time-string "%H:%M:%S" (current-time))
-;; )
-
-;;  (setq spent_second (+ (* (car second) (expt 2 16)) (cadr second)))
-
-;;  2回呼ぶときの  (interactive "BBuffer test:\nsString:")
-
-;; 文字列連結とフォーマット
-;; (setq insert-message (format "%s\n%s\n\n" encode-string (time)))
-
-;; バッファへの書き込み
-;;  (write-region insert-message nil comment-filename t)
-
-;; バッファ経由する場合
-;; (defun buffer-input(string)
-;;   (interactive "sMessage:")
-;;   (with-temp-buffer
-;;     (insert string "\n")
-;;     (insert (time))
-;;     (write-file (format "%s.txt" (date)))
-;;     )
-;; )
