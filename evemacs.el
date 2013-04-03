@@ -1,5 +1,3 @@
-(defvar evemacs-log-file-path "~")
-
 (defvar evemacs-notebook-name nil)
 
 (defvar evemacs-evernote-token nil)
