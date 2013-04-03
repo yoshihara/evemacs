@@ -6,7 +6,8 @@
 
 (defvar evemacs-info-file (expand-file-name "~/.evemacs.gpg"))
 
-(setq el-path (file-name-directory (or load-file-name (buffer-file-name))))
+(setq evemacs-el-path
+      (file-name-directory (or load-file-name (buffer-file-name))))
 
 (defun evemacs ()
   (interactive)
@@ -15,7 +16,7 @@
   (cond ((file-exists-p evemacs-info-file) (evemacs-load-info-file))
         (t
          (when (y-or-n-p "Authorize Evernote? (Using 'browse-url')")
-           (let ((authorize_command (concat "ruby " el-path "bin/authorize_evernote")))
+           (let ((authorize_command (concat "ruby " evemacs-el-path "bin/authorize_evernote")))
              (start-process-shell-command "authorize-evernote" "*Messages*"
                                           authorize_command))
            (sleep-for 2)
@@ -40,10 +41,10 @@
 
 (defun evemacs-command(message notebook)
   (if (null notebook)
-      (concat el-path "bin/evemacs"
+      (concat evemacs-el-path "bin/evemacs"
               " -m " (evemacs-shell-executable-string message)
               " -t " (evemacs-shell-executable-string evernote-token))
-      (concat el-path "bin/evemacs"
+      (concat evemacs-el-path "bin/evemacs"
               " -m " (evemacs-shell-executable-string message)
               " -n " (evemacs-shell-executable-string notebook)
               " -t " (evemacs-shell-executable-string evernote-token))))
