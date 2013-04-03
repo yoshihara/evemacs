@@ -6,10 +6,6 @@
 
 (defvar evemacs-info-file (expand-file-name "~/.evemacs.gpg"))
 
-(defun shell-executable-string(shell-string)
-  (concat "\"" shell-string "\"")
-)
-
 (setq el-path (file-name-directory (or load-file-name (buffer-file-name))))
 
 (defun evemacs ()
@@ -33,6 +29,10 @@
   (with-temp-buffer
     (insert-file-contents evemacs-info-file)
     (setq evernote-token (buffer-string)))
+)
+
+(defun shell-executable-string(shell-string)
+  (concat "\"" shell-string "\"")
 )
 
 (defun evemacs-command(message notebook)
