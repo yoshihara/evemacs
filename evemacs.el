@@ -15,14 +15,9 @@
   (cond ((file-exists-p evemacs-info-file) (evemacs-load-info-file))
         (t
          (when (y-or-n-p "Authorize Evernote? (Using 'browse-url')")
-           (let ((authorize_command (concat "ruby " evemacs-el-path "bin/authorize_evernote")))
-             (start-process-shell-command "authorize-evernote" "*Messages*"
-                                          authorize_command))
-           (sleep-for 2)
-           (browse-url "http://localhost:4567")
+           (browse-url "http://authorize-evemacs.herokuapp.com")
            (setq evemacs-evernote-token (read-string "Your token?: "))
-           (write-region evemacs-evernote-token nil evemacs-info-file nil nil)
-           (kill-process "authorize-evernote"))))))
+           (write-region evemacs-evernote-token nil evemacs-info-file nil nil)(kill-process "authorize-evernote"))))))
 
 (defun evemacs-init ()
   (evemacs))
