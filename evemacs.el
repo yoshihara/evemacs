@@ -16,8 +16,12 @@
         (t
          (when (y-or-n-p "Authorize Evernote? (Using 'browse-url')")
            (browse-url "http://authorize-evemacs.herokuapp.com")
-           (setq evemacs-evernote-token (read-string "Your token?: "))
-           (write-region evemacs-evernote-token nil evemacs-info-file nil nil))))))
+           (let ((evemacs-input-token (read-string "Your token?: ")))
+             (cond ((string= "" evemacs-input-token)
+                    (message "Please input your token in your browser."))
+                   (t
+                    (setq evemacs-evernote-token evemacs-input-token)
+                    (write-region evemacs-evernote-token nil evemacs-info-file nil nil)))))))))
 
 (defun evemacs ()
   (evemacs-init))
