@@ -7,7 +7,7 @@
 (setq evemacs-el-path
       (file-name-directory (or load-file-name (buffer-file-name))))
 
-(defun evemacs ()
+(defun evemacs-init ()
   (interactive)
   "Init evemacs. If ~/.evemacs.gpg exists, it reads it and token in it stores to evemacs-token. If doesn't, it runs authorize app (with sinatra) and waits your input as token."
   (if (not (null evemacs-evernote-token))
@@ -19,8 +19,8 @@
            (setq evemacs-evernote-token (read-string "Your token?: "))
            (write-region evemacs-evernote-token nil evemacs-info-file nil nil)(kill-process "authorize-evernote"))))))
 
-(defun evemacs-init ()
-  (evemacs))
+(defun evemacs ()
+  (evemacs-init))
 
 (defun evemacs-load-info-file ()
   (epa-file-disable)
