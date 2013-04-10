@@ -27,7 +27,6 @@
   (evemacs-init))
 
 (defun evemacs-load-info-file ()
-  (epa-file-disable)
   (with-temp-buffer
     (insert-file-contents evemacs-info-file)
     (setq evemacs-evernote-token (buffer-string)))
