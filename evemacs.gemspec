@@ -51,9 +51,9 @@ Gem::Specification.new do |spec|
 
   spec.licenses = ["GPLv3"]
 
-  spec.add_runtime_dependency("rake")
-  spec.add_runtime_dependency("yard")
   spec.add_runtime_dependency("evernote_oauth")
+  spec.add_development_dependency("rake")
+  spec.add_development_dependency("yard")
   spec.add_development_dependency("test-unit")
   spec.add_development_dependency("test-unit-notify")
   spec.add_development_dependency("bundler")

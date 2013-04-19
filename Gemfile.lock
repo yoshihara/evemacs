@@ -3,8 +3,6 @@ PATH
   specs:
     evemacs (0.0.1)
       evernote_oauth
-      rake
-      yard
 
 GEM
   remote: https://rubygems.org/
@@ -26,5 +24,7 @@ PLATFORMS
 DEPENDENCIES
   bundler
   evemacs!
+  rake
   test-unit
   test-unit-notify
+  yard
