@@ -32,7 +32,7 @@ function like below:
 
 ## Usage
 
-1. ```M-x evemacs-send-message RET``` (or your key bind)
+1. Type ```M-x evemacs-send-message RET``` (or your key bind)
 2. Type your message in a mini buffer
 
 ## Dependencies
