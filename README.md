@@ -1,14 +1,43 @@
 # Evemacs
 
-TODO
+## Description
+
+Tool like "PostEver" (for Android/iOS app) for Emacs.
+
+This is used to make a note from one's day posts in Evernote.
 
 ## Installation
 
-TODO
+Please clone this repository.
+
+  $ git clone git://github.com/yoshihara/evemacs.git
+
+Then, please put below configuration to your .emacs or init.el.
+
+    (add-to-list 'load-path "/path/to/evemacs_clone_directory")
+    (require 'evemacs)
+
+## Setting
+
+You can specify a notebook name in your Evernote. Evemacs uses this
+notebook to make notes. You can set it like below:
+
+  (setq evemacs-notebook-name "My Notebook")
+
+If you don't set it, Evemacs uses your default notebook.
+Then, you should specify key-binding for 'evemacs-send-message
+function like below:
+
+  (global-set-key (kbd "C-c h") 'evemacs-send-message)
 
 ## Usage
 
-TODO
+1. ```M-x evemacs-send-message RET``` (or your key bind)
+2. Type your message in a mini buffer
+
+## Author
+
+Haruka Yoshihara (yshr04hrk at clear-code)
 
 ## Contributing
 
