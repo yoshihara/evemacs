@@ -35,6 +35,14 @@ function like below:
 1. ```M-x evemacs-send-message RET``` (or your key bind)
 2. Type your message in a mini buffer
 
+## Dependencies
+
+This list shows libraries for runtime only. Please see evemacs.gemspec for development dependencies.
+
+* ruby
+* Ruby gems
+  * evernote_oauth (Please run ```gem install evernote_oauth```)
+
 ## Author
 
 Haruka Yoshihara (yshr04hrk at clear-code)
