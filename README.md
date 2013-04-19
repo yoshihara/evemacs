@@ -45,7 +45,7 @@ This list shows libraries for runtime only. Please see evemacs.gemspec for devel
 
 ## Author
 
-Haruka Yoshihara (yshr04hrk at clear-code)
+Haruka Yoshihara (yshr04hrk at gmail.com)
 
 ## Contributing
 
