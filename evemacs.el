@@ -50,6 +50,7 @@
   (interactive "sMessage:")
   (if (null evemacs-evernote-token)
       (evemacs-init))
+  (message "Sending the message to your Evernote...")
   (start-process-shell-command "send-to-evernote" "*Messages*"
                                (evemacs-command message evemacs-notebook-name))
   (set-process-sentinel
