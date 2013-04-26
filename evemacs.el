@@ -51,9 +51,8 @@ app (with sinatra) and waits your input as token."
     (setq evemacs-evernote-token (buffer-string)))
 )
 
-(defun evemacs-quoted-string(shell-string)
-  (concat "\"" shell-string "\"")
-)
+(defun evemacs-quoted-string(string)
+  (concat "\"" string "\""))
 
 (defun evemacs-command(message notebook)
   (if (null notebook)
