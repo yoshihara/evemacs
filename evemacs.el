@@ -25,8 +25,10 @@
       (file-name-directory (or load-file-name (buffer-file-name))))
 
 (defun evemacs-init ()
+  "Init evemacs. If ~/.evemacs.gpg exists, it reads it and token
+in it stores to evemacs-token. If doesn't, it runs authorize
+app (with sinatra) and waits your input as token."
   (interactive)
-  "Init evemacs. If ~/.evemacs.gpg exists, it reads it and token in it stores to evemacs-token. If doesn't, it runs authorize app (with sinatra) and waits your input as token."
   (if (not (null evemacs-evernote-token))
       (message "evemacs is already initialized.")
   (cond ((file-exists-p evemacs-info-file) (evemacs-load-info-file))
