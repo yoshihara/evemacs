@@ -17,7 +17,6 @@
 
 (require 'ert)
 (add-to-list 'load-path default-directory)
-(message default-directory)
 (require 'evemacs)
 
 (setq default-directory (expand-file-name default-directory))
