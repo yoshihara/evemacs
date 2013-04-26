@@ -6,5 +6,4 @@ rvm:
   - 1.8.7
   - 1.9.3
   - 2.0.0
-before_install:
-  - wget https://raw.github.com/ohler/ert/c619b56c5bc6a866e33787489545b87d79973205/lisp/emacs-lisp/ert.el
+install: wget https://raw.github.com/ohler/ert/c619b56c5bc6a866e33787489545b87d79973205/lisp/emacs-lisp/ert.el
