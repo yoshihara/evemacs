@@ -56,6 +56,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("yard")
   spec.add_development_dependency("test-unit")
   spec.add_development_dependency("test-unit-notify")
+  spec.add_development_dependency("test-unit-rr")
   spec.add_development_dependency("bundler")
 end
 

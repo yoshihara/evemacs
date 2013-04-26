@@ -13,9 +13,13 @@ GEM
       oauth (>= 0.4.1)
     oauth (0.4.7)
     rake (10.0.4)
+    rr (1.0.5)
     test-unit (2.5.4)
     test-unit-notify (1.0.1)
       test-unit (>= 2.4.9)
+    test-unit-rr (1.0.2)
+      rr (>= 1.0.2)
+      test-unit (>= 2.5.2)
     yard (0.8.6.1)
 
 PLATFORMS
@@ -27,4 +31,5 @@ DEPENDENCIES
   rake
   test-unit
   test-unit-notify
+  test-unit-rr
   yard
