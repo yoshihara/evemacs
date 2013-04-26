@@ -22,5 +22,5 @@ bootemacs() {
     fi
     ${EMACS}  --no-site-file --directory `pwd` --script test/test-evemacs.el
 }
-
+wget https://raw.github.com/ohler/ert/c619b56c5bc6a866e33787489545b87d79973205/lisp/emacs-lisp/ert.el
 bootemacs $@
