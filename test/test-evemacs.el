@@ -15,8 +15,9 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+(add-to-list 'load-path default-directory)
 (when (null (require 'ert nil t))
-  (message "Fail to load 'ert.el' task test:elisp is skiped.")
+  (message "Fail to load 'ert.el'. task test:elisp is skiped.")
   (kill-emacs 0))
 (require 'evemacs)
 
