@@ -51,19 +51,19 @@ app (with sinatra) and waits your input as token."
     (setq evemacs-evernote-token (buffer-string)))
 )
 
-(defun evemacs-shell-executable-string(shell-string)
+(defun evemacs-quoted-string(shell-string)
   (concat "\"" shell-string "\"")
 )
 
 (defun evemacs-command(message notebook)
   (if (null notebook)
       (concat evemacs-el-path "bin/evemacs"
-              " -m " (evemacs-shell-executable-string message)
-              " -t " (evemacs-shell-executable-string evemacs-evernote-token))
+              " -m " (evemacs-quoted-string message)
+              " -t " (evemacs-quoted-string evemacs-evernote-token))
       (concat evemacs-el-path "bin/evemacs"
-              " -m " (evemacs-shell-executable-string message)
-              " -n " (evemacs-shell-executable-string notebook)
-              " -t " (evemacs-shell-executable-string evemacs-evernote-token))))
+              " -m " (evemacs-quoted-string message)
+              " -n " (evemacs-quoted-string notebook)
+              " -t " (evemacs-quoted-string evemacs-evernote-token))))
 
 (defun evemacs-send-message(message)
   (interactive "sMessage:")
