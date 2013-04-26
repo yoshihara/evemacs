@@ -39,4 +39,8 @@
                   default-directory message evernote-token))
     (should (equal expected-command (evemacs-command message notebook)))))
 
+(ert-deftest evemacs:evemacs-quoted-string ()
+  (let ((message   "This is the message"))
+    (should (equal "\"This is the message\"" (evemacs-quoted-string message)))))
+
 (ert-run-tests-batch-and-exit)
