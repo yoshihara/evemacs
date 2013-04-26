@@ -33,7 +33,7 @@ $LOAD_PATH.unshift(base_dir)
 $LOAD_PATH.unshift(test_dir)
 
 Dir.glob("#{base_dir}/test/**/test{_,-}*.rb") do |file|
-  require file.sub(/\.rb$/, "")
+  require file.gsub(/\.rb$/, "")
 end
 
 ENV["TEST_UNIT_MAX_DIFF_TARGET_STRING_SIZE"] ||= "5000"
