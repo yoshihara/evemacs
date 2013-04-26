@@ -43,4 +43,9 @@
   (let ((message   "This is the message"))
     (should (equal "\"This is the message\"" (evemacs-quoted-string message)))))
 
+(ert-deftest evemacs:evemacs-load-info-file ()
+  (setq evemacs-info-file (file-relative-name "test/fixtures/info-file.txt"))
+  (evemacs-load-info-file)
+  (should (equal "This is the info file.\n" evemacs-evernote-token)))
+
 (ert-run-tests-batch-and-exit)
