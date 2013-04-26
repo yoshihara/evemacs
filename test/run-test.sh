@@ -20,7 +20,7 @@ bootemacs() {
     if [ "$#" = 1 ]; then
         EMACS=$1
     fi
-    ${EMACS} -chdir test --no-site-file --directory `pwd` --script test-evemacs.el
+    ${EMACS}  --no-site-file --directory `pwd` --script test/test-evemacs.el
 }
 
 bootemacs $@

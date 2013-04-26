@@ -16,9 +16,11 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 (require 'ert)
-(setq default-directory (expand-file-name (file-relative-name  "../")))
 (add-to-list 'load-path default-directory)
+(message default-directory)
 (require 'evemacs)
+
+(setq default-directory (expand-file-name default-directory))
 
 (setq evernote-token "evernote-token")
 (setq evemacs-evernote-token evernote-token)
