@@ -16,9 +16,12 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 (add-to-list 'load-path default-directory)
+
 (when (null (require 'ert nil t))
-  (message "Fail to load 'ert.el'. task test:elisp is skiped.")
-  (kill-emacs 0))
+  (shell-command "wget https://raw.github.com/ohler/ert/c619b56c5bc6a866e33787489545b87d79973205/lisp/emacs-lisp/ert.el")
+  (when (null (require 'ert nil t))
+  (message "Fail to load 'ert.el'. task test:elisp is skiped.")))
+
 (require 'evemacs)
 
 (setq default-directory (expand-file-name default-directory))
