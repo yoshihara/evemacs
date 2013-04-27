@@ -19,12 +19,12 @@ namespace :test do
   desc "Run tests with elisp (using emacs)."
   task :elisp do
     emacs = ENV["EMACS"] || "emacs"
-    @elisp_tests_exit_status = system("test/run-test.sh", emacs)
+    @elisp_tests_exit_status = system("test/run-elisp-test.sh", emacs)
   end
 
   desc "Run tests with ruby."
   task :ruby do
-    @ruby_tests_exit_status = ruby("test/run-test.rb")
+    @ruby_tests_exit_status = ruby("test/run-ruby-test.rb")
   end
 end
 
