@@ -7,7 +7,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    evernote-thrift (1.23.2)
+    evernote-thrift (1.24.0)
     evernote_oauth (0.2.1)
       evernote-thrift
       oauth (>= 0.4.1)
