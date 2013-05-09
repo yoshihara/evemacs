@@ -10,7 +10,7 @@ This is used to make a note from one's day posts in Evernote.
 
 Please clone this repository.
 
-  $ git clone git://github.com/yoshihara/evemacs.git
+    $ git clone git://github.com/yoshihara/evemacs.git
 
 Then, please put below configuration to your .emacs or init.el.
 
@@ -22,13 +22,13 @@ Then, please put below configuration to your .emacs or init.el.
 You can specify a notebook name in your Evernote. Evemacs uses this
 notebook to make notes. You can set it like below:
 
-  (setq evemacs-notebook-name "My Notebook")
+    (setq evemacs-notebook-name "My Notebook")
 
 If you don't set it, Evemacs uses your default notebook.
 Then, you should specify key-binding for 'evemacs-send-message
 function like below:
 
-  (global-set-key (kbd "C-c h") 'evemacs-send-message)
+    (global-set-key (kbd "C-c h") 'evemacs-send-message)
 
 ## Usage
 
