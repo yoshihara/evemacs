@@ -37,7 +37,10 @@ function like below:
 
 ## Dependencies
 
-This list shows libraries for runtime only. Please see evemacs.gemspec for development dependencies.
+* emacs > 23.3
+* ruby 1.9
+
+This list shows ruby libraries (rubygems) for runtime only. Please see evemacs.gemspec for development dependencies.
 
 * ruby
 * Ruby gems
