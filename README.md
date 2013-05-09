@@ -25,14 +25,14 @@ notebook to make notes. You can set it like below:
     (setq evemacs-notebook-name "My Notebook")
 
 If you don't set it, Evemacs uses your default notebook.
-Then, you should specify key-binding for 'evemacs-send-message
+Then, you should specify key-binding for 'evemacs-add-message
 function like below:
 
-    (global-set-key (kbd "C-c h") 'evemacs-send-message)
+    (global-set-key (kbd "C-c h") 'evemacs-add-message)
 
 ## Usage
 
-1. Type ```M-x evemacs-send-message RET``` (or your key bind)
+1. Type ```M-x evemacs-add-message RET``` (or your key bind)
 2. Type your message in a mini buffer
 
 ## Dependencies

@@ -64,15 +64,15 @@ app (with sinatra) and waits your input as token."
               " -n " (evemacs-quoted-string notebook)
               " -t " (evemacs-quoted-string evemacs-evernote-token))))
 
-(defun evemacs-send-message(message)
+(defun evemacs-add-message(message)
   (interactive "sMessage:")
   (if (null evemacs-evernote-token)
       (evemacs-init))
-  (message "Sending the message to your Evernote...")
-  (start-process-shell-command "send-to-evernote" "*Messages*"
+  (message "Adding the message to your Evernote notebook...")
+  (start-process-shell-command "add-to-evernote" "*Messages*"
                                (evemacs-command message evemacs-notebook-name))
   (set-process-sentinel
-   (get-process "send-to-evernote")
+   (get-process "add-to-evernote")
    '(lambda (process signal)
       (if (string= signal "finished\n")
           (message "Finished.")))))
