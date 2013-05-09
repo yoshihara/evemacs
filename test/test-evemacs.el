@@ -29,7 +29,7 @@
 (setq evernote-token "evernote-token")
 (setq evemacs-evernote-token evernote-token)
 
-(ert-deftest evemacs:evemacs-command-with-notebook ()
+(ert-deftest test:evemacs-command-with-notebook ()
   (let ((message "This is message!")
         (notebook "evemacs-notebook"))
     (setq expected-command
@@ -37,7 +37,7 @@
                   default-directory message notebook evernote-token))
     (should (equal expected-command (evemacs-command message notebook)))))
 
-(ert-deftest evemacs:evemacs-command-without-notebook ()
+(ert-deftest test:evemacs-command-without-notebook ()
   (let ((message "This is message!")
         (notebook nil))
     (setq expected-command
@@ -45,11 +45,11 @@
                   default-directory message evernote-token))
     (should (equal expected-command (evemacs-command message notebook)))))
 
-(ert-deftest evemacs:evemacs-quoted-string ()
+(ert-deftest test:evemacs-quoted-string ()
   (let ((message   "This is the message"))
     (should (equal "\"This is the message\"" (evemacs-quoted-string message)))))
 
-(ert-deftest evemacs:evemacs-load-info-file ()
+(ert-deftest test:evemacs-load-info-file ()
   (setq evemacs-info-file (file-relative-name "test/fixtures/info-file.txt"))
   (evemacs-load-info-file)
   (should (equal "This is the info file.\n" evemacs-evernote-token)))
