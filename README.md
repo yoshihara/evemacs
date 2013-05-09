@@ -33,7 +33,7 @@ function like below:
 ## Usage
 
 1. Type ```M-x evemacs-add-message RET``` (or your key bind)
-2. Type your message in a mini buffer
+2. Type your message in a mini buffer and press RET
 
 ## Dependencies
 
