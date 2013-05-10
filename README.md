@@ -1,5 +1,7 @@
 # Evemacs
 
+[![Build Status](https://travis-ci.org/yoshihara/evemacs.png?branch=master)](https://travis-ci.org/yoshihara/evemacs)
+
 ## Description
 
 Tool like "PostEver" (for Android/iOS app) for Emacs.
