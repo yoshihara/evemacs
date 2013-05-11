@@ -92,7 +92,7 @@ class TestEvernoteAPIExecutor < Test::Unit::TestCase
     filter = Evernote::EDAM::NoteStore::NoteFilter.new
     filter.notebookGuid = guid
     filter.words = words
-     filter
+    filter
   end
 
   def generate_note(guid, title, content)
