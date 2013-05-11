@@ -65,10 +65,8 @@ class TestEvernoteAPIExecutor < Test::Unit::TestCase
     title   = "test_note"
     content = "Hello evernote."
 
-    note = Evernote::EDAM::Type::Note.new
-    note.notebookGuid = guid
-    note.title        = title
-    note.content      = content
+    note = generate_note(guid, title, content)
+
     mock_with_evernote_oauth_client do
       mock(EvernoteOAuth::NoteStore).createNote(@token, note) { note }
     end
