@@ -47,7 +47,20 @@ class TestEvernoteClient < Test::Unit::TestCase
   end
 
   def test_create_note
+    guid    = "test_note_guid"
+    title   = "test_note"
+    content = "Hello evernote."
 
+    note = Evernote::EDAM::Type::Note.new
+    note.notebookGuid = guid
+    note.title        = title
+    note.content      = content
+    mock_with_evernote_oauth_client do
+      mock(EvernoteOAuth::NoteStore).createNote(@token, note) { note }
+    end
+
+    actual_note = EvernoteClient.new(@token).create_note(guid, title, content)
+    assert_equal(note, actual_note)
   end
 
   def mock_with_evernote_oauth_client
