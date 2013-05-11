@@ -28,14 +28,6 @@ class EvernoteAPIExecutor
     @note_store.getDefaultNotebook(@token)
   end
 
-  def valid_guid?(guid)
-    guids = notebooks.collect do |notebook|
-      notebook.guid
-    end
-
-    guids.include?(guid)
-  end
-
   def notebooks
     @note_store.listNotebooks
   end

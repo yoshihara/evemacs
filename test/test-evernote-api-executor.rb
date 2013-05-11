@@ -30,10 +30,6 @@ class TestEvernoteAPIExecutor < Test::Unit::TestCase
     assert_equal("notebook", EvernoteAPIExecutor.new(@token).default_notebook)
   end
 
-  def test_valid_guid?
-
-  end
-
   def test_notebooks
     notebook_list = ["Inbox", "Archives", "ToDoList"]
     mock_with_evernote_oauth_client do
