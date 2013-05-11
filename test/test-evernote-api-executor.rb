@@ -15,9 +15,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-require "evernote-client"
+require "evernote-api-executor"
 
-class TestEvernoteClient < Test::Unit::TestCase
+class TestEvernoteAPIExecutor < Test::Unit::TestCase
   def setup
     @token = "token"
   end
@@ -27,7 +27,7 @@ class TestEvernoteClient < Test::Unit::TestCase
       mock(EvernoteOAuth::NoteStore).getDefaultNotebook(@token) { "notebook" }
     end
 
-    assert_equal("notebook", EvernoteClient.new(@token).default_notebook)
+    assert_equal("notebook", EvernoteAPIExecutor.new(@token).default_notebook)
   end
 
   def test_valid_guid?
@@ -39,7 +39,7 @@ class TestEvernoteClient < Test::Unit::TestCase
     mock_with_evernote_oauth_client do
       mock(EvernoteOAuth::NoteStore).listNotebooks { notebook_list }
     end
-    assert_equal(notebook_list, EvernoteClient.new(@token).notebooks)
+    assert_equal(notebook_list, EvernoteAPIExecutor.new(@token).notebooks)
   end
 
   def test_find_notes
@@ -59,7 +59,8 @@ class TestEvernoteClient < Test::Unit::TestCase
       mock(EvernoteOAuth::NoteStore).createNote(@token, note) { note }
     end
 
-    actual_note = EvernoteClient.new(@token).create_note(guid, title, content)
+    executor = EvernoteAPIExecutor.new(@token)
+    actual_note = executor.create_note(guid, title, content)
     assert_equal(note, actual_note)
   end
 

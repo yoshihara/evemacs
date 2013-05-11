@@ -17,7 +17,7 @@
 
 require "evernote_oauth"
 
-class EvernoteClient
+class EvernoteAPIExecutor
   def initialize(token)
     @token = token
     client = EvernoteOAuth::Client.new(:token => token, :sandbox => false)

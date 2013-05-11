@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-require "evernote-client"
+require "evernote-api-executor"
 require "evemacs/options"
 
 module Evemacs
@@ -32,7 +32,7 @@ module Evemacs
 
       title = @now.strftime("%Y/%m/%d")
 
-      @client = ::EvernoteClient.new(@options.token)
+      @client = ::EvernoteAPIExecutor.new(@options.token)
       message_notebook_guid = fetch_notebook_guid(@options.notebook)
       today_note = fetch_today_note(message_notebook_guid, title)
 
