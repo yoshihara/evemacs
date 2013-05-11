@@ -78,6 +78,8 @@ class TestEvernoteAPIExecutor < Test::Unit::TestCase
     assert_equal(note, actual_note)
   end
 
+  private
+
   def mock_with_evernote_oauth_client
     mock(EvernoteOAuth::Client).new(:token => @token, :sandbox => false) do
       mock(EvernoteOAuth::Client).note_store do
