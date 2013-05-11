@@ -31,11 +31,11 @@ class TestEvernoteAPIExecutor < Test::Unit::TestCase
   end
 
   def test_notebooks
-    notebook_list = ["Inbox", "Archives", "ToDoList"]
+    notebooks = ["Inbox", "Archives", "ToDoList"]
     mock_with_evernote_oauth_client do
-      mock(EvernoteOAuth::NoteStore).listNotebooks { notebook_list }
+      mock(EvernoteOAuth::NoteStore).listNotebooks { notebooks }
     end
-    assert_equal(notebook_list, EvernoteAPIExecutor.new(@token).notebooks)
+    assert_equal(notebooks, EvernoteAPIExecutor.new(@token).notebooks)
   end
 
   def test_find_notes
