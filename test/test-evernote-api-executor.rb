@@ -46,18 +46,21 @@ class TestEvernoteAPIExecutor < Test::Unit::TestCase
     guid    = "test_notebook_guid"
     words   = "test_note"
     content = "This is the test contents. #{words}."
+    count   = 10
 
-    note = generate_note(guid, "title", content)
     filter = generate_filter(guid, words)
+    notes = [generate_note(guid, "title", content)] * count
     mock_with_evernote_oauth_client do
-      mock(EvernoteOAuth::NoteStore).findNotes(@token, filter, 0, 1) do
-        mock(Evernote::EDAM::NoteStore::NoteList.new).notes { [note] }
+      mock(EvernoteOAuth::NoteStore).findNotes(@token, filter, 0, count) do
+        mock(Evernote::EDAM::NoteStore::NoteList.new).notes { notes }
       end
     end
 
     executor = EvernoteAPIExecutor.new(@token)
-    actual_note = executor.find_notes(:guid => guid, :words => words)
-    assert_equal([note], actual_note)
+    actual_notes = executor.find_notes(:guid  => guid,
+                                       :words => words,
+                                       :count => count)
+    assert_equal(notes, actual_notes)
   end
 
   def test_create_note

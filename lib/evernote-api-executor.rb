@@ -43,12 +43,13 @@ class EvernoteAPIExecutor
   def find_notes(options={})
     guid = options[:guid]
     words = options[:words]
+    count = options[:count] || 1
 
     filter = Evernote::EDAM::NoteStore::NoteFilter.new
     filter.notebookGuid ||= guid
     filter.words ||= words
 
-    @note_store.findNotes(@token, filter, 0, 1).notes
+    @note_store.findNotes(@token, filter, 0, count).notes
   end
 
   def create_note(notebook_guid, title, content)
