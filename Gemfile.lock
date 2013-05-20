@@ -14,7 +14,7 @@ GEM
     oauth (0.4.7)
     rake (10.0.4)
     rr (1.0.5)
-    test-unit (2.5.4)
+    test-unit (2.5.5)
     test-unit-notify (1.0.1)
       test-unit (>= 2.4.9)
     test-unit-rr (1.0.2)
