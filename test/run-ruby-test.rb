@@ -25,8 +25,6 @@ require "test-unit"
 require "test/unit/notify"
 require "test/unit/rr"
 
-Test::Unit::Priority.enable
-
 $LOAD_PATH.unshift(lib_dir)
 $LOAD_PATH.unshift(base_dir)
 
