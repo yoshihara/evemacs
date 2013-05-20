@@ -41,7 +41,8 @@ Gem::Specification.new do |spec|
   spec.summary = summary
   spec.description = description
 
-  spec.files = ["README.md", "Rakefile", "Gemfile", "COPYING"]
+  spec.files = ["README.md", "COPYING"]
+  spec.files += ["Rakefile", "Gemfile", "evemacs.gemspec"]
   spec.files += Dir.glob("lib/**/*.rb")
   spec.files += Dir.glob("doc/text/*.*")
   spec.test_files = Dir.glob("test/**/*.rb")
