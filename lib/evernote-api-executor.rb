@@ -18,6 +18,9 @@
 require "evernote_oauth"
 
 class EvernoteAPIExecutor
+  class Error < StandardError
+  end
+
   def initialize(token)
     @token = token
     client = EvernoteOAuth::Client.new(:token => token, :sandbox => false)
@@ -53,10 +56,12 @@ class EvernoteAPIExecutor
 
       @note_store.createNote(@token, note)
     rescue Evernote::EDAM::Error::EDAMUserException => error
-      raise("#{error}: Error occured with Evernote server." +
+      raise(Error.new,
+            "#{error}: Error occured with Evernote server." +
               "#{error.errorCode}: #{error.parameter}")
     rescue Evernote::EDAM::Error::EDAMNotFoundException => error
-      raise("#{error}: Can't find the notebook you specified. " +
+      raise(Error.new,
+            "#{error}: Can't find the notebook you specified. " +
               "Please check the GUID: #{notebook_guid}")
     end
   end
@@ -70,10 +75,12 @@ class EvernoteAPIExecutor
     begin
       @note_store.updateNote(@token, note)
     rescue Evernote::EDAM::Error::EDAMUserException => error
-      raise("#{error}: Error occured with Evernote server." +
+      raise(Error.new,
+            "#{error}: Error occured with Evernote server." +
               "#{error.errorCode}: #{error.parameter}")
     rescue Evernote::EDAM::Error::EDAMNotFoundException => error
-      raise("#{error}: Can't find the note you specified. " +
+      raise(Error.new,
+            "#{error}: Can't find the note you specified. " +
               "Please check the GUID: #{note_guid}")
     end
   end
