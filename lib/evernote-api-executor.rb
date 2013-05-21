@@ -52,13 +52,12 @@ class EvernoteAPIExecutor
       note.content = content
 
       @note_store.createNote(@token, note)
-    rescue => error
-      if error.instance_of?(Evernote::EDAM::Error::EDAMUserException)
-        puts("#{error}: Error occured with Evernote server." +
-               "#{error.errorCode}: #{error.parameter}")
-      else
-        p error #for debug
-      end
+    rescue Evernote::EDAM::Error::EDAMUserException => error
+      raise("#{error}: Error occured with Evernote server." +
+              "#{error.errorCode}: #{error.parameter}")
+    rescue Evernote::EDAM::Error::EDAMNotFoundException => error
+      raise("#{error}: Can't find the notebook you specified. " +
+              "Please check the GUID: #{notebook_guid}")
     end
   end
 
@@ -70,13 +69,12 @@ class EvernoteAPIExecutor
 
     begin
       @note_store.updateNote(@token, note)
-    rescue => error
-      if error.instance_of?(Evernote::EDAM::Error::EDAMUserException)
-        puts("#{error}: Error occured with Evernote server." +
-               "#{error.errorCode}: #{error.parameter}")
-      else
-        p error #for debug
-      end
+    rescue Evernote::EDAM::Error::EDAMUserException => error
+      raise("#{error}: Error occured with Evernote server." +
+              "#{error.errorCode}: #{error.parameter}")
+    rescue Evernote::EDAM::Error::EDAMNotFoundException => error
+      raise("#{error}: Can't find the note you specified. " +
+              "Please check the GUID: #{note_guid}")
     end
   end
 
