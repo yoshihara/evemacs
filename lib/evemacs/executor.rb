@@ -73,7 +73,7 @@ module Evemacs
 EOH
       today_content =
         "#{header}" +
-        "<en-note>#{entry(message)}</en-note>"
+          "<en-note>#{entry(message)}</en-note>"
       @client.create_note(message_notebook_guid, title, today_content)
     end
 
