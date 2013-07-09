@@ -36,7 +36,7 @@ class EvernoteAPIExecutor
   end
 
   def find_notes(options={})
-    guid = options[:guid]
+    guid  = options[:guid]
     words = options[:words]
     count = options[:count] || 1
 
@@ -50,9 +50,9 @@ class EvernoteAPIExecutor
   def create_note(notebook_guid, title, content)
     begin
       note = Evernote::EDAM::Type::Note.new
-      note.title = title
+      note.title        = title
       note.notebookGuid = notebook_guid
-      note.content = content
+      note.content      = content
 
       @note_store.createNote(@token, note)
     rescue Evernote::EDAM::Error::EDAMUserException => error
@@ -68,8 +68,8 @@ class EvernoteAPIExecutor
 
   def update_note(note_guid, title, content)
     note = Evernote::EDAM::Type::Note.new
-    note.title = title
-    note.guid = note_guid
+    note.title   = title
+    note.guid    = note_guid
     note.content = content
 
     begin
