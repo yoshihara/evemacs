@@ -63,6 +63,13 @@ module Evemacs
         existing_notebook.name.force_encoding("UTF-8")
         existing_notebook.name == notebook
       end
+
+      if message_notebooks.empty?
+        puts "notebook \"#{notebook}\" can't be found, "+
+               "So your message is saved in the default notebook."
+        return @client.default_notebook.guid
+      end
+
       message_notebooks.first.guid
     end
 
