@@ -7,20 +7,20 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    evernote-thrift (1.24.0)
+    evernote-thrift (1.25.0)
     evernote_oauth (0.2.1)
       evernote-thrift
       oauth (>= 0.4.1)
     oauth (0.4.7)
-    rake (10.0.4)
-    rr (1.0.5)
+    rake (10.1.0)
+    rr (1.1.1)
     test-unit (2.5.5)
     test-unit-notify (1.0.1)
       test-unit (>= 2.4.9)
-    test-unit-rr (1.0.2)
-      rr (>= 1.0.2)
+    test-unit-rr (1.0.3)
+      rr (>= 1.1.1)
       test-unit (>= 2.5.2)
-    yard (0.8.6.1)
+    yard (0.8.6.2)
 
 PLATFORMS
   ruby
