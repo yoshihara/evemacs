@@ -52,7 +52,7 @@ app (with sinatra) and waits your input as token."
 )
 
 (defun evemacs-quoted-string(string)
-  (concat "\"" string "\""))
+  (concat "\"" (encode-coding-string string 'utf-8) "\""))
 
 (defun evemacs-command(message notebook)
   (if (null notebook)
