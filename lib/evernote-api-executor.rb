@@ -44,7 +44,12 @@ class EvernoteAPIExecutor
     filter.notebookGuid ||= guid
     filter.words ||= words
 
-    @note_store.findNotes(@token, filter, 0, count).notes
+    spec = Evernote::EDAM::NoteStore::NotesMetadataResultSpec.new
+    metadatas = @note_store.findNotesMetadata(@token, filter, 0, count, spec)
+    notes = []
+    metadatas.notes.map do |metadata|
+      @note_store.getNote(@token, metadata.guid, true, true, false, false)
+    end
   end
 
   def create_note(notebook_guid, title, content)
