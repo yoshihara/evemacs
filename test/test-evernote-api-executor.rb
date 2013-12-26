@@ -45,10 +45,21 @@ class TestEvernoteAPIExecutor < Test::Unit::TestCase
     count   = 10
 
     filter = generate_filter(guid, words)
+    spec = Evernote::EDAM::NoteStore::NotesMetadataResultSpec.new
     notes = [generate_note(guid, "title", content)] * count
+
     mock_with_evernote_oauth_client do
-      mock(EvernoteOAuth::NoteStore).findNotes(@token, filter, 0, count) do
-        mock(Evernote::EDAM::NoteStore::NoteList.new).notes { notes }
+      mock(EvernoteOAuth::NoteStore).findNotesMetadata(@token, filter, 0, count, spec) do
+        mock(Evernote::EDAM::NoteStore::NotesMetadataList).notes do
+          metadata = Evernote::EDAM::NoteStore::NoteMetadata.new
+          mock(metadata).guid.times(count) { guid }
+          [metadata] * count
+        end
+      end
+
+      getnote_arguments = [@token, guid, true, true, false, false]
+      mock(EvernoteOAuth::NoteStore).getNote(*getnote_arguments).times(count) do
+        generate_note(guid, "title", content)
       end
     end
 
