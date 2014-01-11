@@ -41,12 +41,12 @@ class TestEvernoteAPIExecutor < Test::Unit::TestCase
   def test_find_notes
     guid    = "test_notebook_guid"
     words   = "test_note"
-    content = "This is the test contents. #{words}."
     count   = 10
 
     filter = generate_filter(guid, words)
     spec = Evernote::EDAM::NoteStore::NotesMetadataResultSpec.new
-    notes = [generate_note(guid, "title", content)] * count
+    metadata = Evernote::EDAM::NoteStore::NoteMetadata.new(guid: guid)
+    notes = [metadata] * count
 
     mock_with_evernote_oauth_client do
       mock(EvernoteOAuth::NoteStore).findNotesMetadata(@token, filter, 0, count, spec) do
@@ -55,11 +55,6 @@ class TestEvernoteAPIExecutor < Test::Unit::TestCase
           mock(metadata).guid.times(count) { guid }
           [metadata] * count
         end
-      end
-
-      getnote_arguments = [@token, guid, true, true, false, false]
-      mock(EvernoteOAuth::NoteStore).getNote(*getnote_arguments).times(count) do
-        generate_note(guid, "title", content)
       end
     end
 
